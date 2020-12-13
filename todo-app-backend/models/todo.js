@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const todoSchema = new mongoose.Schema({
     task: {
@@ -9,6 +10,9 @@ const todoSchema = new mongoose.Schema({
     completed:{
         type: Boolean,
         default: false
+    },
+    subTasks: {
+        type: [Schema.Types.Mixed]
     }
 });
 
