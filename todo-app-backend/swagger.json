@@ -9,7 +9,7 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "localhost:3000",
+  "host": "localhost:8080",
   "basePath": "/",
   "tags": [
     {
@@ -219,15 +219,7 @@
         "subtasks": {
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "completed": {
-                "type": "boolean"
-              }
-            }
+            "type": "object"
           }
         }
       }
@@ -243,15 +235,7 @@
         "subTasks": {
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "isCompleted": {
-                "type": "boolean"
-              }
-            }
+            "type": "object"
           }
         }
       }

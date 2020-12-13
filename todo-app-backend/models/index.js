@@ -10,7 +10,7 @@ const {
 
 let url;
 if (!ENV) {
-    url = 'mongodb://localhost/todo-app'
+    url = 'mongodb://localhost/todo-app';
 } else {
    url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
 }
