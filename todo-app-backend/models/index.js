@@ -16,9 +16,7 @@ if (!ENV) {
 }
 
 const options = {
-    useNewUrlParser: true,
-    reconnectTries: Number.MAX_VALUE,
-    connectTimeoutMS: 10000,
+    useNewUrlParser: true
 };
 mongoose.connect(url, options).then( function() {
     console.log('MongoDB is connected');
@@ -28,5 +26,9 @@ mongoose.connect(url, options).then( function() {
 mongoose.set('debug', true);
 mongoose.Promise = Promise;
 
-module.exports.Todo = require("./todo");
-module.exports.User = require("./user");
+const User = require("./user");
+const Todo = require("./todo");
+module.exports = {
+    User: User,
+    Todo: Todo
+};

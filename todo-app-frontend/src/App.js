@@ -20,7 +20,7 @@ function App() {
       alert("please enter something");
       return;
     }
-    if (todos.some(({ task }) => task === todo)) {
+    if (todos.some(({ name }) => name === todo)) {
       alert(`Task: ${todo} already exists`);
       return;
     }
@@ -60,13 +60,13 @@ function App() {
         </div>
 
         <ul>
-          {todos.length ? todos.map(({ _id, task, completed }, i) => (
+          {todos.length ? todos.map(({ _id, name, completed }, i) => (
               <li
                   key={i}
                   onClick={e => updateTodo(e, _id)}
                   className={completed ? "completed" : ""}
               >
-                {task} <span onClick={e => deleteTodo(e, _id)}>X</span>
+                {name} <span onClick={e => deleteTodo(e, _id)}>X</span>
               </li>
           )): <p>No Todos Yet :(</p>}
         </ul>

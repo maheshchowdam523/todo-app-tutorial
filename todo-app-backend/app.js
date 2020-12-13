@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 8080;
 const db = require("./models/");
 const cors = require("cors");
+const uuid = require('uuid');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
@@ -23,9 +24,12 @@ app.get("/todos", async (req, res, next) => {
 
 app.post("/addTodo", async (req, res, next) => {
   try {
+    let body = req.body;
+    body._id = uuid.v4();
     const todo = await db.Todo.create(req.body);
     return response(res, 201, todo);
   } catch (err) {
+    console.log(err);
     next({ status: 400, message: "failed to create todo" });
   }
 });

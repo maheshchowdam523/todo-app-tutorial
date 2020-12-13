@@ -2,9 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const todoSchema = new mongoose.Schema({
+    _id: {type: String, unique: true
+    },
     name: {
         type: String,
-        unique: true,
         required: true
     },
     completed:{

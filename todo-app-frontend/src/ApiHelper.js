@@ -3,9 +3,9 @@ import axios from "axios";
 const API_URL="http://localhost:8080/todos/"
 const CREATE_TODO = "http://localhost:8080/addTodo"
 
-async function createTodo(task) {
+async function createTodo(name) {
     const { data: newTodo } = await axios.post(CREATE_TODO, {
-        task
+        name
     });
     return newTodo;
 }
