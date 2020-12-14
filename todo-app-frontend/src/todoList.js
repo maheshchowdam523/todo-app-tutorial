@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
     justifyContent: "space-around",
     overflow: "hidden",
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: "#fafafa"
   },
   gridList: {
     height: 450,
@@ -48,10 +48,7 @@ export const TodoItem = props => {
                 aria-label="Done"
                 color={todo.completed ? "primary" : "default"}
                 disabled={todo.completed}
-                onClick={e => {
-                  // props.openUpdateDialog(todo);
-                  updateAction(e, { ...todo, completed: true });
-                }}
+                onClick={e => updateAction(e, { ...todo, completed: true })}
               >
                 <Done />
               </IconButton>

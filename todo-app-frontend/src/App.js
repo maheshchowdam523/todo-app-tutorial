@@ -4,18 +4,15 @@ import Login from "./Login";
 import { TodoItem } from "./todoList";
 import { AddTodo } from "./AddTodo";
 import { DialogPopUp } from "./DialogBox";
-import { makeStyles } from "@material-ui/core";
+import { Button, makeStyles } from "@material-ui/core";
 import { ApiHelper } from "./ApiHelper";
 
 const useStyles = makeStyles(theme => ({
   heading: {
     backgroundColor: "green",
-    minHeight: "10vh",
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    color: "white",
-    paddingLeft: 20
+    padding: "0px 20px 0px 20px",
+    color: "white"
   },
   gridList: {
     height: 450,
@@ -80,10 +77,11 @@ function App() {
   };
 
   const validateUser = async (username, password) => {
-    const payload = { username: username.value, password: password.value };
+    const payload = { username: username, password: password };
     const response = await ApiHelper.validateUser(payload);
     if (response.status === 200) {
       updateUser(response.data.name);
+      updateError("");
     } else {
       updateUser(undefined);
       console.log("error", response);
@@ -101,7 +99,22 @@ function App() {
   };
   return (
     <div>
-      <h2 className={classes.heading}> Heading </h2>
+      <div className={classes.heading}>
+        <p style={{ fontSize: 16, fontWeight: 600 }}>ToDo App</p>
+        {user && (
+          <Button
+            type={"reset"}
+            variant="text"
+            style={{ marginLeft: "auto", color: "white" }}
+            onClick={e => {
+              updateUser(false);
+              updateError("");
+            }}
+          >
+            Sign out
+          </Button>
+        )}
+      </div>
       {!user ? (
         <Login
           updateUser={updateUser}

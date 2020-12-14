@@ -7,7 +7,7 @@ import {
 } from "@material-ui/core";
 import { useState } from "react";
 
-const DeleteModal = props => {
+export const PopUp = props => {
   const [open, isOpen] = useState(props.open);
   return (
     <Dialog open={open} onClose={e => isOpen(false)}>

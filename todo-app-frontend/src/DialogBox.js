@@ -14,12 +14,13 @@ export const DialogPopUp = props => {
   };
   return (
     <Dialog open={props.open} onClose={props.handleClose}>
-      <DialogContent>
+      <DialogContent style={{ width: 700 }}>
         <TextField
           autoFocus
           margin="normal"
           label="Update Todo"
           type="text"
+          width={500}
           fullWidth
           name="updateTodo"
           value={update}

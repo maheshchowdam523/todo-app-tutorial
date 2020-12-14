@@ -22,7 +22,6 @@ export const AddTodo = props => {
             props.setTodo(event.target.value);
           }}
         />
-
         <Button
           type="submit"
           variant="contained"
