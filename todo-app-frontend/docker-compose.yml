@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+
+  sample:
+    container_name: todoApp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '/app/node_modules'
+      - '.:/app'
+    ports:
+      - 3001:3000
