@@ -1,19 +1,20 @@
-import {response} from "./utils";
+import { response } from "./utils";
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 8080;
 const db = require("./models/");
 const cors = require("cors");
-const uuid = require('uuid');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+const uuid = require("uuid");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("/todos", async (req, res, next) => {
+  console.log("req", req.params);
   try {
     const todos = await db.Todo.find({});
     return response(res, 200, todos);
@@ -73,11 +74,14 @@ app.post("/createUser", async (req, res, next) => {
 
 app.post("/login", async (req, res, next) => {
   try {
-    const todo = await db.User.findOne({username: req.body.username, password: req.body.password});
+    const todo = await db.User.findOne({
+      username: req.body.username,
+      password: req.body.password
+    });
     if (todo) {
       return response(res, 200, todo);
     } else {
-      return response(res, 400, {message: 'Bad Credentials'});
+      return response(res, 400, { message: "Bad Credentials" });
     }
   } catch (err) {
     next({ status: 400, message: "Bad Credentials" });

@@ -6,6 +6,7 @@ import { AddTodo } from "./AddTodo";
 import { DialogPopUp } from "./DialogBox";
 import { Button, makeStyles } from "@material-ui/core";
 import { ApiHelper } from "./ApiHelper";
+import { Footer } from "./Footer";
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -97,6 +98,8 @@ function App() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const onChange = () => {};
   return (
     <div>
       <div className={classes.heading}>
@@ -125,13 +128,16 @@ function App() {
         <div>
           <AddTodo setTodo={setTodo} addTodo={createTodo} />
           {todos.length ? (
-            <TodoItem
-              todos={todos}
-              deleteTodo={deleteTodo}
-              updateTodo={updateTodo}
-              openUpdateDialog={openUpdateDialog}
-              setTodo={setTodo}
-            />
+            <>
+              <TodoItem
+                todos={todos}
+                deleteTodo={deleteTodo}
+                updateTodo={updateTodo}
+                openUpdateDialog={openUpdateDialog}
+                setTodo={setTodo}
+              />
+              <Footer />
+            </>
           ) : (
             <p className={classes.root}>No Todos Yet :(</p>
           )}

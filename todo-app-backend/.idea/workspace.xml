@@ -2,28 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0e1e3f-da6b-4803-a0aa-9108bd4b656f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../todo-app-frontend/modals/DeleteModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../todo-app-frontend/modals/UpdateTodoModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../todo-app-frontend/src/AddTodo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../todo-app-frontend/src/DialogBox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../todo-app-frontend/src/todoList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-app-frontend/src/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/swagger.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../todo-app-frontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-app-frontend/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../todo-app-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-app-frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-app-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/ApiHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-app-frontend/src/ApiHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-app-frontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-app-frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/Dashboard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/Home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-app-frontend/src/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/Utils/Common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/Utils/PrivateRoute.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/Utils/PublicRoute.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-app-frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-app-frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todo-app-frontend/src/routes.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +44,29 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="npm.start (1)">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="" />
+          <option name="buildCliOptions" value="" />
+          <option name="command" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="commandLineOptions" value="" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="todo-app-frontend/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="../todo-app-frontend/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="api" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/../todo-app-frontend/package.json" />
       <command value="run" />
@@ -92,8 +99,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start (1)" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.start (1)" />
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.todo-app-frontend/Dockerfile" />
         <item itemvalue="npm.api" />
       </list>
     </recent_temporary>
@@ -109,7 +118,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607833354100</updated>
-      <workItem from="1607833355333" duration="25030000" />
+      <workItem from="1607833355333" duration="32814000" />
+      <workItem from="1608010853874" duration="891000" />
+      <workItem from="1608629174880" duration="1567000" />
     </task>
     <servers />
   </component>
@@ -126,9 +137,28 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app.js</url>
+          <line>18</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app.js</url>
+          <line>17</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

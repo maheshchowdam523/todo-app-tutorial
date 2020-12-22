@@ -61,6 +61,15 @@
         "tags": [
           "To-do"
         ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "path",
+            "required": false,
+            "description": "to-do filter",
+            "type": "string"
+          }
+        ],
         "summary": "Get all available to-dos in system",
         "responses": {
           "200": {
