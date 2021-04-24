@@ -39,7 +39,7 @@
             "in": "body",
             "description": "To-do that we want to create",
             "schema": {
-              "$ref": "#/definitions/Todo"
+              "$ref": "#/definitions/AddTodo"
             }
           }
         ],
@@ -76,6 +76,22 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/Todos"
+            }
+          }
+        }
+      }
+    },
+    "/dashboard": {
+      "get": {
+        "tags": [
+          "To-do"
+        ],
+        "summary": "Get Dashboard data",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Dashboard"
             }
           }
         }
@@ -212,6 +228,16 @@
     }
   },
   "definitions": {
+    "AddTodo": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
     "Todo": {
       "required": [
         "name",
@@ -225,11 +251,14 @@
         "name": {
           "type": "string"
         },
-        "subtasks": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
+        "completed": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string", "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string", "format": "date-time"
         }
       }
     },
@@ -241,17 +270,30 @@
         "name": {
           "type": "string"
         },
-        "subTasks": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
+        "completed": {
+          "type": "boolean"
         }
       }
     },
     "Todos": {
       "type": "array",
       "$ref": "#/definitions/Todo"
+    },
+    "Dashboard": {
+      "required": [
+        "totalCount", "completedCount", "recentTasks"],
+      "properties": {
+        "totalCount": {
+          "type": "number"
+        },
+        "completedCount": {
+          "type": "number"
+        },
+        "recentTasks": {
+          "type": "array",
+          "$ref": "#/definitions/Todo"
+        }
+      }
     },
     "Login": {
       "required": [

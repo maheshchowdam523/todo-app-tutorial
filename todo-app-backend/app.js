@@ -8,25 +8,37 @@ const cors = require("cors");
 const uuid = require("uuid");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
+const dotenv = require('dotenv');
+dotenv.config();
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("/todos", async (req, res, next) => {
-  console.log("req", req.params);
   try {
-    const todos = await db.Todo.find({});
+    const todos = await db.Todo.find({}).sort({createdAt: -1});
     return response(res, 200, todos);
   } catch (err) {
     next({ status: 400, message: "failed to get todos" });
   }
 });
 
+app.get('/dashboard', async (req, res, next) => {
+  try {
+    const todos = await db.Todo.find({}).sort({updatedAt: -1});
+    const finalResponse = {totalCount: todos.length, completedCount: todos.filter(a => a.completed === true).length, recentTasks: todos.slice(0, 3)}
+    return response(res, 200, finalResponse);
+  } catch (e) {
+    next({ status: 400, message: "failed to get dashboard data" });
+  }
+});
 app.post("/addTodo", async (req, res, next) => {
   try {
     let body = req.body;
     body._id = uuid.v4();
+    body.createdAt = new Date();
+    body.updatedAt = new Date();
     const todo = await db.Todo.create(req.body);
     return response(res, 201, todo);
   } catch (err) {
@@ -37,7 +49,9 @@ app.post("/addTodo", async (req, res, next) => {
 
 app.put("/todos/:id", async (req, res, next) => {
   try {
-    const todo = await db.Todo.findByIdAndUpdate(req.params.id, req.body, {
+    const updatePayload = Object.assign(req.body);
+    updatePayload.updatedAt = new Date();
+    const todo = await db.Todo.findByIdAndUpdate(req.params.id, updatePayload, {
       new: true
     });
     return response(res, 200, todo);
